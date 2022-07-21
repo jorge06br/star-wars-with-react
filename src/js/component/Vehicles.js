@@ -11,7 +11,7 @@ const Vehicles = () => {
             {
             store.VehiclesArr.map((elem, index) => {
                 return (
-                    <div className="card" id='CardContainer'
+                    <div className="card" 
                         key={index}>
                         <img className="card-img-top"
                             src={
@@ -19,7 +19,9 @@ const Vehicles = () => {
                                     elem.uid
                                 }.jpg`
                             }
-                            alt="Card image cap"/>
+                            onError={
+                                (e) => (e.target.onerror = null, e.target.src ='https://starwars-visualguide.com/assets/img/big-placeholder.jpg')
+                            }/>
                         <div className="card-body">
                             <h5 className="card-title">
                                 <Link to={

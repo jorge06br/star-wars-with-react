@@ -18,9 +18,11 @@ const Planets = () => {
                             src={
                                 `https://starwars-visualguide.com/assets/img/planets/${
                                     elem.uid
-                                }.jpg`
+                                }.jpg` 
                             }
-                            alt="Card image cap"/>
+                            onError={
+                                (e) => (e.target.onerror = null, e.target.src ='https://starwars-visualguide.com/assets/img/big-placeholder.jpg')
+                            }/>
                         <div className="card-body my-2 p-0">
                             <h5 className="card-title">
                                 <Link to={

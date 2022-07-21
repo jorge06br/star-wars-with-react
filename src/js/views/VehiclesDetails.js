@@ -6,11 +6,11 @@ import Vehicles from "../component/Vehicles";
 export const VehiclesDetails=() => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
-	const vehiclesID = params.vehciclesID;
+	const vehiclesID = params.vehiclesID;
 	const [vehicle, setVehicle] = useState(null);
 
 	useEffect(() => {
-		fetch(`https://www.swapi.tech/api/vehicles/4`)
+		fetch(`https://www.swapi.tech/api/vehicles/${vehiclesID}`)
 			.then(res => res.json())
 			.then(response => setVehicle(response.result.properties));
 	}, [vehicle]);
