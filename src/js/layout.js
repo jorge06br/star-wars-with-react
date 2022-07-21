@@ -3,8 +3,10 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
+import { CharDetails } from "./views/CharDetails";
+import { PlanetDetails } from "./views/PlanetDetails";
+import { VehiclesDetails } from "./views/VehiclesDetails";
+
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -17,7 +19,7 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div>
+		<div className="d-flex flex-column">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
@@ -25,11 +27,14 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
+						<Route exact path="/CharDetails/:peopleID">
+							<CharDetails />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/PlanetDetails/:PlanetID">
+							<PlanetDetails />
+						</Route>
+						<Route exact path="/VehiclesDetails/:vehiclesID">
+							<VehiclesDetails />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>

@@ -1,0 +1,67 @@
+.logo{
+    height: 80px;
+    width: 150px;
+}
+.favorite{
+    justify-content: end;
+    text-align: end;
+}
+
+.card img{
+    object-fit: cover;
+   max-width: 100%;
+   max-height: 100%;
+   width: auto;
+   height: auto;
+    border-radius: 5px;
+
+}
+.scrolling-wrapper {
+    text-align: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scrollbar-color: gray; 
+}
+.card {
+    display: inline-block;
+    margin: 5px;
+    border:1px solid lightgray;
+    border-radius: 5px;
+    height: 270px;
+    width: 200px;
+    padding: 0;
+}
+.holder-text > h2 {
+    text-decoration: underline solid grey;
+    margin-top: 1em;
+}
+
+.learn-color > a {
+    color: white;
+}
+.learn-color {
+    background: black;
+}
+
+.property-under {
+    text-decoration: underline solid grey;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.fav-icn {
+    font-size: 2em;
+    color: #15f2fd;
+}
+
+.fav-button:active,
+.fav-button:hover {
+    border: 2px solid grey;
+}
+
+.red-saber {
+    background: grey;
+}

@@ -1,43 +1,68 @@
-const getState = ({ getStore, getActions, setStore }) => {
+
+const APIurl = "https://www.swapi.tech/api";
+const getState = ({
+	getStore,
+	getActions,
+	setStore
+}) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			PersArr: [],
+			PlanetsArr:[],
+			VehiclesArr:[],
+			Details:"",
+			Favorites:[]
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
 			loadSomeData: () => {
 				/**
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
-			changeColor: (index, color) => {
-				//get the store
+
+			getCharacters: () => {
+				fetch(`${APIurl}/people`).then(res => res.json()).then(response => {
+					setStore({
+						PersArr:response.results
+					});
+				}).catch(error=>error)
+			},
+			
+			getPlanets: () => {
+				fetch(`${APIurl}/planets/`).then(res => res.json()).then(response => {
+					setStore({
+						PlanetsArr:response.results
+					});
+				}).catch(error=>error)
+			},
+			
+			getVehicles: () => {
+				fetch(`${APIurl}/vehicles/`).then(res => res.json()).then(response => {
+					setStore({
+						VehiclesArr:response.results
+					});
+				}).catch(error=>error)
+			},
+			addFavorite:newfav => {
 				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
+				setStore({Favorites:[...store.Favorites,newfav]});
+				
+			},
+			removeFavorite:index => {
+				const store = getStore();
+				store.Favorites.splice(index,1);
+				setStore({Favorites:[...store.Favorites]});
+			},
+			/*getDetails:() => {
+				fetch('https://www.swapi.tech/api/people/1').then(res => res.json()).then(response => {
+					console.log(response)
+					setStore({
+						Details:response.results.description
+					});
+					console.log(Details)
+				}).catch(error=>error)
+			},*/
+			
 		}
 	};
 };
