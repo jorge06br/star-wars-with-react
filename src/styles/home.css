@@ -65,3 +65,15 @@
 .red-saber {
     background: grey;
 }
+
+.btn-primary{
+    width: 100px;
+    font-size: 10px;
+    font-size: 1vw;
+}
+
+.details-table-header{
+    text-transform: uppercase;
+    color: #dc3545;
+    font-weight: 600;
+}

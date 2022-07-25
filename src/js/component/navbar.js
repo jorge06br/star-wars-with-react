@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import SWlogo from "/workspace/react-hello-webapp/src/img/SW-LOGO.png"
+import SWlogo from "/workspace/star-wars-with-react/src/img/SW-LOGO.png"
 import {Context} from "../store/appContext";
 import React, {useContext} from "react";
 
